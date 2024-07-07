@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, {Component} from 'react'
+import './style.css'
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      show: true
+    }
+    this.handleToggle = this.handleToggle.bind(this)
+  }
+  handleToggle() {
+    this.setState({
+      show: !this.state.show
+    })
+  }
+  render() {
+    return (
+      <>
+        <div className={this.state.show ? 'show':'hide'}>hello world</div>
+        <button onClick={this.handleToggle}>toggle</button>
+      </>
+    );
+  }
 }
-
 export default App;
